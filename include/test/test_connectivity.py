@@ -10,11 +10,9 @@ def test_service_connectivity():
     """Test basic network connectivity to all services"""
     
     services = {
-        "Spark Master": ("spark-master", 8080),
-        "Spark Master (Spark Port)": ("spark-master", 7077),
         "YARN ResourceManager": ("resourcemanager", 8088),
-        "Hadoop NameNode": ("hadoop-namenode", 9870),
-        "Hadoop NameNode (HDFS)": ("hadoop-namenode", 9000),
+        "Hadoop NameNode": ("namenode", 9870),
+        "Hadoop NameNode (HDFS)": ("namenode", 9000),
     }
     
     print("🔍 Testing network connectivity to all services...\n")
@@ -48,9 +46,8 @@ def test_web_endpoints():
     """Test HTTP endpoints"""
     
     endpoints = {
-        "Spark Master UI": "http://spark-master:8080",
         "YARN ResourceManager UI": "http://resourcemanager:8088",
-        "Hadoop NameNode UI": "http://hadoop-namenode:9870",
+        "Hadoop NameNode UI": "http://namenode:9870",
     }
     
     print("\n🌐 Testing web endpoints...\n")

@@ -52,10 +52,13 @@ services:
     ports:
       - "8080:8080"
     environment:
+      
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: mysql+mysqldb://airflow:airflow@mysql:3306/airflow
       # AIRFLOW__CORE__LOAD_EXAMPLES: 'False'
       AIRFLOW__API__AUTH_BACKENDS: airflow.api.auth.backend.session,airflow.api.auth.backend.basic_auth
+      HADOOP_CONF_DIR: /opt/hadoop/etc/hadoop
+      YARN_CONF_DIR: /opt/hadoop/etc/hadoop
 
     volumes:
       - ./dags:/opt/airflow/dags
@@ -83,6 +86,8 @@ services:
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: mysql+mysqldb://airflow:airflow@mysql:3306/airflow
       # AIRFLOW__CORE__LOAD_EXAMPLES: 'False'
       AIRFLOW__API__AUTH_BACKENDS: airflow.api.auth.backend.session,airflow.api.auth.backend.basic_auth
+      HADOOP_CONF_DIR: /opt/hadoop/etc/hadoop
+      YARN_CONF_DIR: /opt/hadoop/etc/hadoop
 
     volumes:
       - ./dags:/opt/airflow/dags

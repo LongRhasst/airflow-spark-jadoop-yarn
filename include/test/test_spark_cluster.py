@@ -13,11 +13,14 @@ def test_spark_master_connection():
     print("🔍 Testing Spark Master connection...")
     
     try:
-        response = requests.get("http://spark-master:8080/api/v1/applications", timeout=10)
+        response = requests.get("http://spark-master:8080/json/", timeout=10)
         if response.status_code == 200:
             print("✅ Spark Master is accessible")
-            apps = response.json()
-            print(f"📊 Found {len(apps)} applications")
+            cluster_info = response.json()
+            active_apps = cluster_info.get('activeapps', [])
+            print(f"📊 Found {len(active_apps)} active applications")
+            print(f"📊 Cluster status: {cluster_info.get('status', 'UNKNOWN')}")
+            print(f"📊 Alive workers: {cluster_info.get('aliveworkers', 0)}")
             return True
         else:
             print(f"❌ Spark Master returned status code: {response.status_code}")

@@ -22,8 +22,16 @@
         <value>16384</value>
     </property>
     <property>
+        <name>yarn.scheduler.maximum-allocation-mb</name>
+        <value>6144</value>
+    </property>
+    <property>
         <name>yarn.nodemanager.resource.cpu-vcores</name>
-        <value>8</value>
+        <value>4</value>
+    </property>
+    <property>
+        <name>yarn.scheduler.maximum-allocation-vcores</name>
+        <value>2</value>
     </property>
     <property>
         <name>yarn.nodemanager.aux-services</name>
@@ -36,5 +44,13 @@
     <property>
         <name>yarn.log.server.url</name>
         <value>http://historyserver:8188/applicationhistory/logs/</value>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.connect.max-wait.ms</name>
+        <value>60000</value>
+    </property>
+    <property>
+        <name>yarn.resourcemanager.connect.retry-interval.ms</name>
+        <value>10000</value>
     </property>
 </configuration>

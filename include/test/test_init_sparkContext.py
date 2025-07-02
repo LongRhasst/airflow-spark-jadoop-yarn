@@ -63,10 +63,10 @@ def test_spark_yarn_connection():
         conf.set("spark.sql.warehouse.dir", "hdfs://namenode:9000/user/hive/warehouse")
         
         # Resource allocation - reduced for container environment
-        conf.set("spark.executor.memory", "256m")
+        conf.set("spark.executor.memory", "1g")
         conf.set("spark.executor.cores", "1")
         conf.set("spark.executor.instances", "1")
-        conf.set("spark.driver.memory", "128m")
+        conf.set("spark.driver.memory", "1g")
         
         # Additional configuration for containerized environment
         conf.set("spark.driver.host", "webserver")
@@ -80,7 +80,11 @@ def test_spark_yarn_connection():
         
         # Initialize SparkContext
         print("⚙️  Initializing SparkContext with YARN configuration...")
-        sc = SparkContext(conf=conf)
+        try:
+            sc = SparkContext(conf=conf)
+        except Exception as e:
+            print("❌ SparkContext init failed:", str(e))
+            raise
         
         print("✅ SparkContext initialized successfully!")
         print(f"📊 Spark version: {sc.version}")

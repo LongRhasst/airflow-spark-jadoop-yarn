@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run Test SparkContext Initialization",
+			"type": "shell",
+			"command": "cd /d d:\\pipeline && wsl.exe -e bash -c \"python include/test/test_init_sparkContext.py\"",
+			"group": "test",
+			"problemMatcher": [],
+			"isBackground": false
+		}
+	]
+}
