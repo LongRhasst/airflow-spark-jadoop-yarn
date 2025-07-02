@@ -2,125 +2,96 @@ services:
   mysql:
     image: mysql:8.0
     container_name: mysql
-    env_file:
-      - ./.env
-    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: airflow
+      MYSQL_DATABASE: airflow
+      MYSQL_USER: airflow
+      MYSQL_PASSWORD: airflow
     ports:
       - "3307:3306"
-    volumes:
-      - mysql_data:/var/lib/mysql
-    networks:
-      - airflow
+    command: --host_cache_size=0 --pid-file=/var/lib/mysql/mysqld.pid
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      timeout: 20s
-      retries: 10
-  
+      interval: 10s
+      retries: 5
+      start_period: 5s
+    networks:
+      - airflow
+
   airflow-init:
     image: my_airflow:1.0.0
-    container_name: init
+    container_name: airflow-init
+    entrypoint: /bin/bash -c "airflow db migrate && airflow users create --username admin --password admin --firstname Admin --lastname User --role Admin --email admin@example.com"
     depends_on:
       mysql:
         condition: service_healthy
-    restart: on-failure
-    env_file:
-      - ./.env
-      - ./.hadoop.env
     environment:
-      - HADOOP_CONF_DIR=/opt/hadoop/etc/hadoop
-      - YARN_CONF_DIR=/opt/hadoop/etc/hadoop
-    entrypoint: 
-      - bash
-      - -c
-      - |
-        airflow db init &&
-        airflow users create \
-          --username admin \
-          --firstname Admin \
-          --lastname User \
-          --role Admin \
-          --email admin@example.com \
-          --password admin
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: mysql+mysqldb://airflow:airflow@mysql:3306/airflow
+      # AIRFLOW__CORE__LOAD_EXAMPLES: 'False'
+      AIRFLOW__API__AUTH_BACKENDS: airflow.api.auth.backend.session,airflow.api.auth.backend.basic_auth
+
     volumes:
       - ./dags:/opt/airflow/dags
-      - ./plugins:/opt/airflow/plugins
       - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
       - ./include:/opt/airflow/include
-      - ./data:/opt/airflow/data
-      - ./hadoop-config:/opt/hadoop/etc/hadoop
     networks:
       - airflow
-    
+
   webserver:
     image: my_airflow:1.0.0
     container_name: webserver
+    command: webserver
     depends_on:
-      mysql:
-        condition: service_healthy
       airflow-init:
         condition: service_completed_successfully
-    env_file:
-      - ./.env
-      - ./.hadoop.env
-    environment:
-      - SPARK_HOME=/home/airflow/.local/lib/python3.10/site-packages/pyspark
-      - HADOOP_CONF_DIR=/opt/hadoop/etc/hadoop
-      - YARN_CONF_DIR=/opt/hadoop/etc/hadoop
-      - AIRFLOW__SPARK__SPARK_HOME=/home/airflow/.local/lib/python3.10/site-packages/pyspark
-      - AIRFLOW__SPARK__SPARK_BINARY=/home/airflow/.local/lib/python3.10/site-packages/pyspark/bin/spark-submit
-      - JAVA_HOME=/usr/lib/jvm/default-java
-    command: airflow webserver
     ports:
       - "8080:8080"
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: mysql+mysqldb://airflow:airflow@mysql:3306/airflow
+      # AIRFLOW__CORE__LOAD_EXAMPLES: 'False'
+      AIRFLOW__API__AUTH_BACKENDS: airflow.api.auth.backend.basic_auth
     volumes:
       - ./dags:/opt/airflow/dags
-      - ./plugins:/opt/airflow/plugins
       - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
       - ./include:/opt/airflow/include
-      - ./data:/opt/airflow/data
-      - ./hadoop-config:/opt/hadoop/etc/hadoop
     networks:
       - airflow
-    restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
       interval: 30s
       timeout: 10s
-      retries: 3
+      retries: 5
+      start_period: 30s
 
   scheduler:
     image: my_airflow:1.0.0
     container_name: scheduler
+    command: scheduler
     depends_on:
-      mysql:
-        condition: service_healthy
       airflow-init:
         condition: service_completed_successfully
-    env_file:
-      - ./.env
-      - ./.hadoop.env
     environment:
-      - SPARK_HOME=/home/airflow/.local/lib/python3.10/site-packages/pyspark
-      - HADOOP_CONF_DIR=/opt/hadoop/etc/hadoop
-      - YARN_CONF_DIR=/opt/hadoop/etc/hadoop
-      - AIRFLOW__SPARK__SPARK_HOME=/home/airflow/.local/lib/python3.10/site-packages/pyspark
-      - AIRFLOW__SPARK__SPARK_BINARY=/home/airflow/.local/lib/python3.10/site-packages/pyspark/bin/spark-submit
-      - JAVA_HOME=/usr/lib/jvm/default-java
-    command: airflow scheduler
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: mysql+mysqldb://airflow:airflow@mysql:3306/airflow
+      # AIRFLOW__CORE__LOAD_EXAMPLES: 'False'
+      AIRFLOW__API__AUTH_BACKENDS: airflow.api.auth.backend.basic_auth
     volumes:
       - ./dags:/opt/airflow/dags
-      - ./plugins:/opt/airflow/plugins
       - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
       - ./include:/opt/airflow/include
-      - ./data:/opt/airflow/data
-      - ./hadoop-config:/opt/hadoop/etc/hadoop
     networks:
       - airflow
-    restart: unless-stopped
-  
-volumes:
-  mysql_data:
-    driver: local
+    healthcheck:
+      test: ["CMD-SHELL", "airflow jobs check --job-type SchedulerJob --hostname \"$${HOSTNAME}\""]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
 
 networks:
   airflow:
