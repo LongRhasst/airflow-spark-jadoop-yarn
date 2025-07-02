@@ -1,5 +1,24 @@
 import os
+import sys
+import socket
 from pyspark import SparkConf, SparkContext
+
+def check_service_connectivity(host, port, service_name):
+    """Check connectivity to a service"""
+    try:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(5)
+        result = sock.connect_ex((host, port))
+        sock.close()
+        if result == 0:
+            print(f"✅ {service_name} ({host}:{port}) is reachable")
+            return True
+        else:
+            print(f"❌ {service_name} ({host}:{port}) is not reachable")
+            return False
+    except Exception as e:
+        print(f"❌ Error checking {service_name} ({host}:{port}): {e}")
+        return False
 
 def test_spark_yarn_connection():
     """Test SparkContext initialization with YARN cluster mode"""
@@ -7,21 +26,57 @@ def test_spark_yarn_connection():
     print("🧪 Testing Spark connection to YARN cluster...")
     
     try:
+        # Set required environment variables for Spark
+        # Use the paths from the Dockerfile
+        os.environ['JAVA_HOME'] = '/usr/lib/jvm/default-java'
+        
+        # Try to find PySpark installation
+        try:
+            import pyspark
+            spark_home = os.path.dirname(pyspark.__file__)
+            os.environ['SPARK_HOME'] = spark_home
+            print(f"🔍 Found PySpark at: {spark_home}")
+        except ImportError:
+            print("❌ PySpark not found. Installing...")
+            return False
+        
+        # Set Hadoop environment variables for YARN connectivity
+        os.environ['HADOOP_CONF_DIR'] = '/opt/hadoop/etc/hadoop'
+        os.environ['YARN_CONF_DIR'] = '/opt/hadoop/etc/hadoop'
+        
+        print("🔧 Environment variables set for Spark connectivity")
+        
         # Configure Spark for YARN cluster
         conf = SparkConf()
         conf.setAppName("TestSparkContext-YARN")
         conf.setMaster("yarn")
         conf.set("spark.submit.deployMode", "client")
+        
+        # YARN configuration - use container network names
         conf.set("spark.yarn.resourcemanager.address", "resourcemanager:8032")
         conf.set("spark.yarn.resourcemanager.scheduler.address", "resourcemanager:8030")
         conf.set("spark.yarn.resourcemanager.resource-tracker.address", "resourcemanager:8031")
         conf.set("spark.yarn.resourcemanager.webapp.address", "resourcemanager:8088")
-        conf.set("spark.hadoop.fs.defaultFS", "hdfs://hadoop-namenode:9000")
-        conf.set("spark.sql.warehouse.dir", "hdfs://hadoop-namenode:9000/user/hive/warehouse")
-        conf.set("spark.executor.memory", "1g")
+        
+        # Hadoop configuration
+        conf.set("spark.hadoop.fs.defaultFS", "hdfs://namenode:9000")
+        conf.set("spark.sql.warehouse.dir", "hdfs://namenode:9000/user/hive/warehouse")
+        
+        # Resource allocation - reduced for container environment
+        conf.set("spark.executor.memory", "256m")
         conf.set("spark.executor.cores", "1")
         conf.set("spark.executor.instances", "1")
-        conf.set("spark.driver.memory", "512m")
+        conf.set("spark.driver.memory", "128m")
+        
+        # Additional configuration for containerized environment
+        conf.set("spark.driver.host", "webserver")
+        conf.set("spark.driver.bindAddress", "0.0.0.0")
+        conf.set("spark.ui.enabled", "false")  # Disable UI for testing
+        conf.set("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
+        
+        # Add network configuration to handle container networking
+        conf.set("spark.sql.adaptive.enabled", "false")
+        conf.set("spark.sql.adaptive.coalescePartitions.enabled", "false")
         
         # Initialize SparkContext
         print("⚙️  Initializing SparkContext with YARN configuration...")
@@ -59,9 +114,10 @@ def test_spark_yarn_connection():
         # Provide troubleshooting suggestions
         print("\n🛠️  Troubleshooting suggestions:")
         print("   1. Ensure YARN ResourceManager is running on resourcemanager:8088")
-        print("   2. Check Hadoop NameNode is accessible at hadoop-namenode:9000")
+        print("   2. Check Hadoop NameNode is accessible at namenode:9000")
         print("   3. Verify network connectivity between containers")
         print("   4. Check YARN and Hadoop service logs")
+        print("   5. Verify PySpark is properly installed")
         
         return False
 
@@ -93,6 +149,17 @@ def test_spark_local_fallback():
 
 if __name__ == "__main__":
     print("🚀 Starting Spark connectivity tests...\n")
+    
+    # First, check connectivity to required services
+    print("🔍 Checking service connectivity...")
+    services_ok = True
+    services_ok &= check_service_connectivity("resourcemanager", 8088, "YARN ResourceManager")
+    services_ok &= check_service_connectivity("namenode", 9000, "Hadoop NameNode")
+    services_ok &= check_service_connectivity("namenode", 9870, "Hadoop NameNode WebUI")
+    
+    if not services_ok:
+        print("⚠️  Some services are not reachable. Continuing with tests...")
+    print()
     
     # Try YARN first
     yarn_success = test_spark_yarn_connection()
