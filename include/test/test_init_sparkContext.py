@@ -50,7 +50,7 @@ def test_spark_yarn_connection():
         conf = SparkConf()
         conf.setAppName("TestSparkContext-YARN")
         conf.setMaster("yarn")
-        conf.set("spark.submit.deployMode", "client")
+        conf.set("spark.submit.deployMode", "client")  # Use client mode for testing
         
         # YARN configuration - use container network names
         conf.set("spark.yarn.resourcemanager.address", "resourcemanager:8032")
@@ -63,10 +63,10 @@ def test_spark_yarn_connection():
         conf.set("spark.sql.warehouse.dir", "hdfs://namenode:9000/user/hive/warehouse")
         
         # Resource allocation - reduced for container environment
-        conf.set("spark.executor.memory", "1g")
+        conf.set("spark.executor.memory", "2g")
         conf.set("spark.executor.cores", "1")
-        conf.set("spark.executor.instances", "1")
-        conf.set("spark.driver.memory", "1g")
+        conf.set("spark.executor.instances", "2")
+        conf.set("spark.driver.memory", "2g")
         
         # Additional configuration for containerized environment
         conf.set("spark.driver.host", "webserver")

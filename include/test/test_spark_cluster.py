@@ -54,7 +54,7 @@ def test_hadoop_namenode():
     print("🔍 Testing Hadoop NameNode connection...")
     
     try:
-        response = requests.get("http://hadoop-namenode:9870/webhdfs/v1/?op=LISTSTATUS", timeout=10)
+        response = requests.get("http://namenode:9870/webhdfs/v1/?op=LISTSTATUS", timeout=10)
         if response.status_code == 200:
             print("✅ Hadoop NameNode is accessible")
             return True

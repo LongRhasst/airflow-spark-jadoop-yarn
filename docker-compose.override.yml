@@ -1,5 +1,4 @@
 services:
-  # Namenode
   namenode:
     image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
     container_name: namenode
@@ -14,16 +13,12 @@ services:
       - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
     networks:
       - airflow
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9870"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
 
-  # Datanode
   datanode:
     image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
     container_name: datanode
+    ports:
+      - "9864:9864"
     volumes:
       - hadoop_datanode:/hadoop/dfs/data
       - ./hadoop-config:/etc/hadoop/conf
@@ -34,61 +29,56 @@ services:
       - namenode
     networks:
       - airflow
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9864"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
 
-  # ResourceManager
   resourcemanager:
     image: bde2020/hadoop-resourcemanager:2.0.0-hadoop3.2.1-java8
     container_name: resourcemanager
     ports:
       - "8088:8088"
+      - "8030:8030"
+      - "8031:8031"
+      - "8032:8032"
+    volumes:
+      - ./hadoop-config:/etc/hadoop/conf
     environment:
+      - HADOOP_CONF_DIR=/etc/hadoop/conf
       - SERVICE_PRECONDITION=namenode:9000 namenode:9870 datanode:9864
     depends_on:
       - namenode
       - datanode
     networks:
       - airflow
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8088"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
 
-  # NodeManager
   nodemanager:
     image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.2.1-java8
     container_name: nodemanager
+    ports:
+      - "8042:8042"
+    volumes:
+      - ./hadoop-config:/etc/hadoop/conf
     environment:
-      - SERVICE_PRECONDITION=namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088
+      - HADOOP_CONF_DIR=/etc/hadoop/conf
+      - SERVICE_PRECONDITION=namenode:9000 namenode:9870 resourcemanager:8088 datanode:9864
     depends_on:
       - namenode
       - datanode
       - resourcemanager
     networks:
       - airflow
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8042"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
 
-  # Spark client (submit jobs to YARN)
   spark:
     image: bitnami/spark:3.5.1
     container_name: spark
-    environment:
-      - SPARK_MODE=client
-      - HADOOP_CONF_DIR=/opt/hadoop/etc/hadoop
-      - YARN_CONF_DIR=/opt/hadoop/etc/hadoop
+    command: sleep infinity
     volumes:
       - ./spark-apps:/opt/spark-apps
-      - ./hadoop-config:/opt/hadoop/etc/hadoop
-    command: sleep infinity
+      - ./hadoop-config:/etc/hadoop/conf
+    environment:
+      - HADOOP_CONF_DIR=/etc/hadoop/conf
+      - YARN_CONF_DIR=/etc/hadoop/conf
+      - SPARK_MODE=client
+      - SPARK_MASTER=yarn
+      - SPARK_SUBMIT_DEPLOYMODE=client
     depends_on:
       - resourcemanager
       - namenode
@@ -96,27 +86,22 @@ services:
     networks:
       - airflow
 
-  # HistoryServer (optional)
   historyserver:
     image: bde2020/hadoop-historyserver:2.0.0-hadoop3.2.1-java8
     container_name: historyserver
     ports:
       - "8188:8188"
-    environment:
-      - SERVICE_PRECONDITION=namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088
     volumes:
       - hadoop_historyserver:/hadoop/yarn/timeline
+      - ./hadoop-config:/etc/hadoop/conf
+    environment:
+      - SERVICE_PRECONDITION=namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088
     depends_on:
       - namenode
       - datanode
       - resourcemanager
     networks:
       - airflow
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8188"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
 
 networks:
   airflow:
