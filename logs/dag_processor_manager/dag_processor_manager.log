@@ -11678,3 +11678,208 @@ File Path                                PID    Runtime      # DAGs    # Errors 
 /opt/airflow/dags/dag_smart_fallback.py                           1           0  -21.57s         2025-07-02T18:55:59
 /opt/airflow/dags/hello_dag.py                                    1           0  -21.59s         2025-07-02T18:55:59
 ================================================================================
+[2025-07-03T06:42:40.347+0000] {manager.py:470} INFO - Processing files using up to 2 processes at a time 
+[2025-07-03T06:42:40.348+0000] {manager.py:471} INFO - Process each file at most once every 30 seconds
+[2025-07-03T06:42:40.350+0000] {manager.py:472} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-07-03T06:42:40.351+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2025-07-03T06:42:40.380+0000] {manager.py:740} INFO - There are 4 files in /opt/airflow/dags
+[2025-07-03T06:42:40.571+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                  PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/hello_dag.py             183  0.11s             0           0
+/opt/airflow/dags/dag_smart_fallback.py    186  0.07s             0           0
+/opt/airflow/dags/dag.py                                          0           0
+/opt/airflow/dags/dag_local_fallback.py                           0           0
+================================================================================
+[2025-07-03T06:43:10.803+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/hello_dag.py                                    1           0  1.12s           2025-07-03T06:42:41
+/opt/airflow/dags/dag_smart_fallback.py                           1           0  1.11s           2025-07-03T06:42:41
+/opt/airflow/dags/dag.py                                          1           0  0.51s           2025-07-03T06:42:42
+/opt/airflow/dags/dag_local_fallback.py                           1           0  0.51s           2025-07-03T06:42:42
+================================================================================
+[2025-07-03T06:43:41.159+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/hello_dag.py                                    1           0  0.21s           2025-07-03T06:43:12
+/opt/airflow/dags/dag_smart_fallback.py                           1           0  0.20s           2025-07-03T06:43:12
+/opt/airflow/dags/dag_local_fallback.py                           1           0  0.16s           2025-07-03T06:43:13
+/opt/airflow/dags/dag.py                                          1           0  0.15s           2025-07-03T06:43:12
+================================================================================
+[2025-07-03T06:44:11.622+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_local_fallback.py                           1           0  0.16s           2025-07-03T06:43:43
+/opt/airflow/dags/dag_smart_fallback.py                           1           0  0.15s           2025-07-03T06:43:42
+/opt/airflow/dags/dag.py                                          1           0  0.15s           2025-07-03T06:43:43
+/opt/airflow/dags/hello_dag.py                                    1           0  0.14s           2025-07-03T06:43:42
+================================================================================
+[2025-07-03T06:44:42.090+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_smart_fallback.py                           1           0  0.15s           2025-07-03T06:44:12
+/opt/airflow/dags/dag_local_fallback.py                           1           0  0.15s           2025-07-03T06:44:13
+/opt/airflow/dags/dag.py                                          1           0  0.15s           2025-07-03T06:44:13
+/opt/airflow/dags/hello_dag.py                                    1           0  0.13s           2025-07-03T06:44:12
+================================================================================
+[2025-07-03T06:45:12.556+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_smart_fallback.py                           1           0  0.15s           2025-07-03T06:44:43
+/opt/airflow/dags/dag_local_fallback.py                           1           0  0.14s           2025-07-03T06:44:44
+/opt/airflow/dags/hello_dag.py                                    1           0  0.14s           2025-07-03T06:44:43
+/opt/airflow/dags/dag.py                                          1           0  0.14s           2025-07-03T06:44:44
+================================================================================
+[2025-07-03T06:45:43.074+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_smart_fallback.py                           1           0  0.18s           2025-07-03T06:45:13
+/opt/airflow/dags/dag.py                                          1           0  0.17s           2025-07-03T06:45:14
+/opt/airflow/dags/hello_dag.py                                    1           0  0.15s           2025-07-03T06:45:13
+/opt/airflow/dags/dag_local_fallback.py                           1           0  0.15s           2025-07-03T06:45:14
+================================================================================
+[2025-07-03T06:46:13.430+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_smart_fallback.py                           1           0  0.16s           2025-07-03T06:45:44
+/opt/airflow/dags/hello_dag.py                                    1           0  0.15s           2025-07-03T06:45:44
+/opt/airflow/dags/dag.py                                          1           0  0.15s           2025-07-03T06:45:45
+/opt/airflow/dags/dag_local_fallback.py                           1           0  0.14s           2025-07-03T06:45:45
+================================================================================
+[2025-07-03T06:46:43.908+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag.py                                          1           0  0.16s           2025-07-03T06:46:15
+/opt/airflow/dags/dag_local_fallback.py                           1           0  0.15s           2025-07-03T06:46:15
+/opt/airflow/dags/dag_smart_fallback.py                           1           0  0.15s           2025-07-03T06:46:14
+/opt/airflow/dags/hello_dag.py                                    1           0  0.14s           2025-07-03T06:46:14
+================================================================================
+[2025-07-03T06:47:14.368+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_smart_fallback.py                           1           0  0.15s           2025-07-03T06:46:45
+/opt/airflow/dags/hello_dag.py                                    1           0  0.14s           2025-07-03T06:46:45
+/opt/airflow/dags/dag.py                                          1           0  0.14s           2025-07-03T06:46:46
+/opt/airflow/dags/dag_local_fallback.py                           1           0  0.14s           2025-07-03T06:46:46
+================================================================================
+[2025-07-03T06:47:40.813+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2025-07-03T06:47:40.889+0000] {manager.py:740} INFO - There are 4 files in /opt/airflow/dags
+[2025-07-03T06:47:44.927+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_smart_fallback.py                           1           0  0.15s           2025-07-03T06:47:15
+/opt/airflow/dags/dag_local_fallback.py                           1           0  0.14s           2025-07-03T06:47:16
+/opt/airflow/dags/dag.py                                          1           0  0.14s           2025-07-03T06:47:16
+/opt/airflow/dags/hello_dag.py                                    1           0  0.14s           2025-07-03T06:47:15
+================================================================================
+[2025-07-03T06:48:15.392+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_smart_fallback.py                           1           0  0.15s           2025-07-03T06:47:46
+/opt/airflow/dags/hello_dag.py                                    1           0  0.14s           2025-07-03T06:47:46
+/opt/airflow/dags/dag_local_fallback.py                           1           0  0.13s           2025-07-03T06:47:47
+/opt/airflow/dags/dag.py                                          1           0  0.13s           2025-07-03T06:47:47
+================================================================================
+[2025-07-03T06:48:45.870+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_smart_fallback.py                           1           0  0.17s           2025-07-03T06:48:16
+/opt/airflow/dags/hello_dag.py                                    1           0  0.15s           2025-07-03T06:48:16
+/opt/airflow/dags/dag_local_fallback.py                           1           0  0.14s           2025-07-03T06:48:17
+/opt/airflow/dags/dag.py                                          1           0  0.14s           2025-07-03T06:48:17
+================================================================================
+[2025-07-03T06:49:16.222+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_smart_fallback.py                           1           0  0.16s           2025-07-03T06:48:47
+/opt/airflow/dags/dag.py                                          1           0  0.16s           2025-07-03T06:48:48
+/opt/airflow/dags/dag_local_fallback.py                           1           0  0.15s           2025-07-03T06:48:48
+/opt/airflow/dags/hello_dag.py                                    1           0  0.14s           2025-07-03T06:48:47
+================================================================================
+[2025-07-03T06:49:46.717+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_smart_fallback.py                           1           0  0.16s           2025-07-03T06:49:17
+/opt/airflow/dags/dag_local_fallback.py                           1           0  0.16s           2025-07-03T06:49:18
+/opt/airflow/dags/dag.py                                          1           0  0.16s           2025-07-03T06:49:18
+/opt/airflow/dags/hello_dag.py                                    1           0  0.15s           2025-07-03T06:49:17
+================================================================================
+[2025-07-03T06:50:17.193+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_smart_fallback.py                           1           0  0.17s           2025-07-03T06:49:47
+/opt/airflow/dags/dag_local_fallback.py                           1           0  0.16s           2025-07-03T06:49:49
+/opt/airflow/dags/dag.py                                          1           0  0.15s           2025-07-03T06:49:49
+/opt/airflow/dags/hello_dag.py                                    1           0  0.15s           2025-07-03T06:49:47
+================================================================================
+[2025-07-03T06:50:47.659+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag.py                                          1           0  0.15s           2025-07-03T06:50:19
+/opt/airflow/dags/dag_local_fallback.py                           1           0  0.15s           2025-07-03T06:50:19
+/opt/airflow/dags/dag_smart_fallback.py                           1           0  0.15s           2025-07-03T06:50:18
+/opt/airflow/dags/hello_dag.py                                    1           0  0.14s           2025-07-03T06:50:18
+================================================================================
+[2025-07-03T06:51:18.139+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+---------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_smart_fallback.py                           1           0  0.20s           2025-07-03T06:50:48
+/opt/airflow/dags/hello_dag.py                                    1           0  0.16s           2025-07-03T06:50:48
+/opt/airflow/dags/dag.py                                          1           0  0.15s           2025-07-03T06:50:49
+/opt/airflow/dags/dag_local_fallback.py                           1           0  0.14s           2025-07-03T06:50:49
+================================================================================

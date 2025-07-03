@@ -1,2 +1,51 @@
+# Environment files
 .env
-*.md
+.env.local
+.env.*.local
+
+# Logs and temporary files
+logs/
+*.log
+*.tmp
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+dags/__pycache__/
+include/__pycache__/
+
+# Docker and container data
+.docker/
+docker-compose.override.yml.bak
+
+# Data directories (optional - uncomment if you don't want to track data)
+# data/
+# spark_home/
+
+# IDE and editor files
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Hadoop/Spark temporary files
+*.pid
+*.lock
+derby.log
+metastore_db/
+
+# Documentation (be selective - don't ignore all .md files)
+# *.md  # Too broad - commented out
