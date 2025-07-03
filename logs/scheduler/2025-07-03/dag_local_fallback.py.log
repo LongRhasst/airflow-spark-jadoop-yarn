@@ -2266,3 +2266,119 @@
 [2025-07-03T06:30:11.316+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:30:11.315+0000] {dag.py:3089} INFO - Sync 1 DAGs
 [2025-07-03T06:30:11.346+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:30:11.345+0000] {dag.py:3947} INFO - Setting next_dagrun for spark_processing_pipeline_local to 2025-07-02 00:08:00+00:00, run_after=2025-07-03 00:08:00+00:00
 [2025-07-03T06:30:11.376+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_local_fallback.py took 0.122 seconds
+[2025-07-03T06:30:41.741+0000] {processor.py:161} INFO - Started process (PID=377) to work on /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:30:41.743+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_local_fallback.py for tasks to queue
+[2025-07-03T06:30:41.746+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:30:41.745+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:30:41.755+0000] {logging_mixin.py:188} INFO - Successfully imported request_data
+[2025-07-03T06:30:41.770+0000] {processor.py:840} INFO - DAG(s) 'spark_processing_pipeline_local' retrieved from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:30:41.803+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:30:41.803+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-07-03T06:30:41.827+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:30:41.827+0000] {dag.py:3947} INFO - Setting next_dagrun for spark_processing_pipeline_local to 2025-07-02 00:08:00+00:00, run_after=2025-07-03 00:08:00+00:00
+[2025-07-03T06:30:41.863+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_local_fallback.py took 0.129 seconds
+[2025-07-03T06:31:12.235+0000] {processor.py:161} INFO - Started process (PID=404) to work on /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:31:12.236+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_local_fallback.py for tasks to queue
+[2025-07-03T06:31:12.239+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:31:12.238+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:31:12.250+0000] {logging_mixin.py:188} INFO - Successfully imported request_data
+[2025-07-03T06:31:12.262+0000] {processor.py:840} INFO - DAG(s) 'spark_processing_pipeline_local' retrieved from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:31:12.302+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:31:12.302+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-07-03T06:31:12.332+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:31:12.332+0000] {dag.py:3947} INFO - Setting next_dagrun for spark_processing_pipeline_local to 2025-07-02 00:08:00+00:00, run_after=2025-07-03 00:08:00+00:00
+[2025-07-03T06:31:12.370+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_local_fallback.py took 0.144 seconds
+[2025-07-03T06:31:42.716+0000] {processor.py:161} INFO - Started process (PID=430) to work on /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:31:42.717+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_local_fallback.py for tasks to queue
+[2025-07-03T06:31:42.720+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:31:42.719+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:31:42.734+0000] {logging_mixin.py:188} INFO - Successfully imported request_data
+[2025-07-03T06:31:42.745+0000] {processor.py:840} INFO - DAG(s) 'spark_processing_pipeline_local' retrieved from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:31:42.781+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:31:42.781+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-07-03T06:31:42.811+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:31:42.811+0000] {dag.py:3947} INFO - Setting next_dagrun for spark_processing_pipeline_local to 2025-07-02 00:08:00+00:00, run_after=2025-07-03 00:08:00+00:00
+[2025-07-03T06:31:42.843+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_local_fallback.py took 0.134 seconds
+[2025-07-03T06:32:13.207+0000] {processor.py:161} INFO - Started process (PID=457) to work on /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:32:13.208+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_local_fallback.py for tasks to queue
+[2025-07-03T06:32:13.211+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:32:13.211+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:32:13.219+0000] {logging_mixin.py:188} INFO - Successfully imported request_data
+[2025-07-03T06:32:13.229+0000] {processor.py:840} INFO - DAG(s) 'spark_processing_pipeline_local' retrieved from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:32:13.261+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:32:13.261+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-07-03T06:32:13.290+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:32:13.290+0000] {dag.py:3947} INFO - Setting next_dagrun for spark_processing_pipeline_local to 2025-07-02 00:08:00+00:00, run_after=2025-07-03 00:08:00+00:00
+[2025-07-03T06:32:13.319+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_local_fallback.py took 0.118 seconds
+[2025-07-03T06:32:43.659+0000] {processor.py:161} INFO - Started process (PID=484) to work on /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:32:43.660+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_local_fallback.py for tasks to queue
+[2025-07-03T06:32:43.662+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:32:43.662+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:32:43.668+0000] {logging_mixin.py:188} INFO - Successfully imported request_data
+[2025-07-03T06:32:43.680+0000] {processor.py:840} INFO - DAG(s) 'spark_processing_pipeline_local' retrieved from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:32:43.708+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:32:43.708+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-07-03T06:32:43.730+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:32:43.730+0000] {dag.py:3947} INFO - Setting next_dagrun for spark_processing_pipeline_local to 2025-07-02 00:08:00+00:00, run_after=2025-07-03 00:08:00+00:00
+[2025-07-03T06:32:43.760+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_local_fallback.py took 0.108 seconds
+[2025-07-03T06:33:14.142+0000] {processor.py:161} INFO - Started process (PID=511) to work on /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:33:14.143+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_local_fallback.py for tasks to queue
+[2025-07-03T06:33:14.146+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:33:14.145+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:33:14.156+0000] {logging_mixin.py:188} INFO - Successfully imported request_data
+[2025-07-03T06:33:14.167+0000] {processor.py:840} INFO - DAG(s) 'spark_processing_pipeline_local' retrieved from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:33:14.201+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:33:14.200+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-07-03T06:33:14.224+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:33:14.224+0000] {dag.py:3947} INFO - Setting next_dagrun for spark_processing_pipeline_local to 2025-07-02 00:08:00+00:00, run_after=2025-07-03 00:08:00+00:00
+[2025-07-03T06:33:14.255+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_local_fallback.py took 0.120 seconds
+[2025-07-03T06:33:44.612+0000] {processor.py:161} INFO - Started process (PID=538) to work on /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:33:44.613+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_local_fallback.py for tasks to queue
+[2025-07-03T06:33:44.616+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:33:44.615+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:33:44.625+0000] {logging_mixin.py:188} INFO - Successfully imported request_data
+[2025-07-03T06:33:44.636+0000] {processor.py:840} INFO - DAG(s) 'spark_processing_pipeline_local' retrieved from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:33:44.666+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:33:44.666+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-07-03T06:33:44.688+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:33:44.688+0000] {dag.py:3947} INFO - Setting next_dagrun for spark_processing_pipeline_local to 2025-07-02 00:08:00+00:00, run_after=2025-07-03 00:08:00+00:00
+[2025-07-03T06:33:44.720+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_local_fallback.py took 0.115 seconds
+[2025-07-03T06:34:15.082+0000] {processor.py:161} INFO - Started process (PID=565) to work on /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:34:15.083+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_local_fallback.py for tasks to queue
+[2025-07-03T06:34:15.085+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:34:15.085+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:34:15.091+0000] {logging_mixin.py:188} INFO - Successfully imported request_data
+[2025-07-03T06:34:15.101+0000] {processor.py:840} INFO - DAG(s) 'spark_processing_pipeline_local' retrieved from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:34:15.128+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:34:15.127+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-07-03T06:34:15.150+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:34:15.149+0000] {dag.py:3947} INFO - Setting next_dagrun for spark_processing_pipeline_local to 2025-07-02 00:08:00+00:00, run_after=2025-07-03 00:08:00+00:00
+[2025-07-03T06:34:15.183+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_local_fallback.py took 0.108 seconds
+[2025-07-03T06:36:17.530+0000] {processor.py:161} INFO - Started process (PID=198) to work on /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:36:17.531+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_local_fallback.py for tasks to queue
+[2025-07-03T06:36:17.534+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:36:17.533+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:36:17.542+0000] {logging_mixin.py:188} INFO - Successfully imported request_data
+[2025-07-03T06:36:17.553+0000] {processor.py:840} INFO - DAG(s) 'spark_processing_pipeline_local' retrieved from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:36:17.703+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:36:17.702+0000] {override.py:1858} INFO - Created Permission View: can edit on DAG:spark_processing_pipeline_local
+[2025-07-03T06:36:17.723+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:36:17.722+0000] {override.py:1858} INFO - Created Permission View: can delete on DAG:spark_processing_pipeline_local
+[2025-07-03T06:36:17.738+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:36:17.737+0000] {override.py:1858} INFO - Created Permission View: can read on DAG:spark_processing_pipeline_local
+[2025-07-03T06:36:17.738+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:36:17.738+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-07-03T06:36:17.750+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:36:17.750+0000] {dag.py:3111} INFO - Creating ORM DAG for spark_processing_pipeline_local
+[2025-07-03T06:36:17.767+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:36:17.766+0000] {dag.py:3947} INFO - Setting next_dagrun for spark_processing_pipeline_local to 2025-07-02 00:08:00+00:00, run_after=2025-07-03 00:08:00+00:00
+[2025-07-03T06:36:17.801+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_local_fallback.py took 0.278 seconds
+[2025-07-03T06:36:48.002+0000] {processor.py:161} INFO - Started process (PID=218) to work on /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:36:48.003+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_local_fallback.py for tasks to queue
+[2025-07-03T06:36:48.006+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:36:48.006+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:36:48.012+0000] {logging_mixin.py:188} INFO - Successfully imported request_data
+[2025-07-03T06:36:48.024+0000] {processor.py:840} INFO - DAG(s) 'spark_processing_pipeline_local' retrieved from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:36:48.050+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:36:48.050+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-07-03T06:36:48.076+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:36:48.076+0000] {dag.py:3947} INFO - Setting next_dagrun for spark_processing_pipeline_local to 2025-07-02 00:08:00+00:00, run_after=2025-07-03 00:08:00+00:00
+[2025-07-03T06:36:48.108+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_local_fallback.py took 0.112 seconds
+[2025-07-03T06:37:18.452+0000] {processor.py:161} INFO - Started process (PID=243) to work on /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:37:18.453+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_local_fallback.py for tasks to queue
+[2025-07-03T06:37:18.457+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:37:18.456+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:37:18.464+0000] {logging_mixin.py:188} INFO - Successfully imported request_data
+[2025-07-03T06:37:18.476+0000] {processor.py:840} INFO - DAG(s) 'spark_processing_pipeline_local' retrieved from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:37:18.506+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:37:18.506+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-07-03T06:37:18.530+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:37:18.530+0000] {dag.py:3947} INFO - Setting next_dagrun for spark_processing_pipeline_local to 2025-07-02 00:08:00+00:00, run_after=2025-07-03 00:08:00+00:00
+[2025-07-03T06:37:18.558+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_local_fallback.py took 0.114 seconds
+[2025-07-03T06:37:48.938+0000] {processor.py:161} INFO - Started process (PID=270) to work on /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:37:48.939+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_local_fallback.py for tasks to queue
+[2025-07-03T06:37:48.942+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:37:48.941+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:37:48.955+0000] {logging_mixin.py:188} INFO - Successfully imported request_data
+[2025-07-03T06:37:48.966+0000] {processor.py:840} INFO - DAG(s) 'spark_processing_pipeline_local' retrieved from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:37:48.995+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:37:48.994+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-07-03T06:37:49.017+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:37:49.017+0000] {dag.py:3947} INFO - Setting next_dagrun for spark_processing_pipeline_local to 2025-07-02 00:08:00+00:00, run_after=2025-07-03 00:08:00+00:00
+[2025-07-03T06:37:49.047+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_local_fallback.py took 0.117 seconds
+[2025-07-03T06:38:19.438+0000] {processor.py:161} INFO - Started process (PID=296) to work on /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:38:19.439+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_local_fallback.py for tasks to queue
+[2025-07-03T06:38:19.442+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:38:19.441+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:38:19.454+0000] {logging_mixin.py:188} INFO - Successfully imported request_data
+[2025-07-03T06:38:19.466+0000] {processor.py:840} INFO - DAG(s) 'spark_processing_pipeline_local' retrieved from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:38:19.495+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:38:19.495+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-07-03T06:38:19.516+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:38:19.516+0000] {dag.py:3947} INFO - Setting next_dagrun for spark_processing_pipeline_local to 2025-07-02 00:08:00+00:00, run_after=2025-07-03 00:08:00+00:00
+[2025-07-03T06:38:19.551+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_local_fallback.py took 0.121 seconds
+[2025-07-03T06:38:49.928+0000] {processor.py:161} INFO - Started process (PID=323) to work on /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:38:49.930+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_local_fallback.py for tasks to queue
+[2025-07-03T06:38:49.933+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:38:49.932+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:38:49.939+0000] {logging_mixin.py:188} INFO - Successfully imported request_data
+[2025-07-03T06:38:49.952+0000] {processor.py:840} INFO - DAG(s) 'spark_processing_pipeline_local' retrieved from /opt/airflow/dags/dag_local_fallback.py
+[2025-07-03T06:38:49.986+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:38:49.985+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-07-03T06:38:50.010+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:38:50.010+0000] {dag.py:3947} INFO - Setting next_dagrun for spark_processing_pipeline_local to 2025-07-02 00:08:00+00:00, run_after=2025-07-03 00:08:00+00:00
+[2025-07-03T06:38:50.039+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_local_fallback.py took 0.119 seconds
