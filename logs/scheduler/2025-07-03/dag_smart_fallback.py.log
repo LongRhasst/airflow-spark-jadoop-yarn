@@ -2982,3 +2982,13 @@
 [2025-07-03T06:38:49.820+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:38:49.820+0000] {dag.py:3089} INFO - Sync 1 DAGs
 [2025-07-03T06:38:49.844+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:38:49.844+0000] {dag.py:3947} INFO - Setting next_dagrun for spark_processing_pipeline_smart to 2025-07-02 00:08:00+00:00, run_after=2025-07-03 00:08:00+00:00
 [2025-07-03T06:38:49.880+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_smart_fallback.py took 0.139 seconds
+[2025-07-03T06:39:20.227+0000] {processor.py:161} INFO - Started process (PID=340) to work on /opt/airflow/dags/dag_smart_fallback.py
+[2025-07-03T06:39:20.229+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_smart_fallback.py for tasks to queue
+[2025-07-03T06:39:20.232+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:39:20.231+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_smart_fallback.py
+[2025-07-03T06:39:20.243+0000] {logging_mixin.py:188} INFO - Successfully imported request_data
+[2025-07-03T06:39:20.254+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py:485 RemovedInAirflow3Warning: provide_context is deprecated as of 2.0 and is no longer required
+[2025-07-03T06:39:20.258+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.10/site-packages/airflow/providers/apache/spark/operators/spark_submit.py:137 RemovedInAirflow3Warning: none_failed_or_skipped Trigger Rule is deprecated. Please use `none_failed_min_one_success`.
+[2025-07-03T06:39:20.263+0000] {processor.py:840} INFO - DAG(s) 'spark_processing_pipeline_smart' retrieved from /opt/airflow/dags/dag_smart_fallback.py
+[2025-07-03T06:39:20.294+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:39:20.293+0000] {dag.py:3089} INFO - Sync 1 DAGs
+[2025-07-03T06:39:20.320+0000] {logging_mixin.py:188} INFO - [2025-07-03T06:39:20.319+0000] {dag.py:3947} INFO - Setting next_dagrun for spark_processing_pipeline_smart to 2025-07-02 00:08:00+00:00, run_after=2025-07-03 00:08:00+00:00
+[2025-07-03T06:39:20.355+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_smart_fallback.py took 0.134 seconds
