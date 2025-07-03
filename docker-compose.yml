@@ -59,12 +59,15 @@ services:
       AIRFLOW__API__AUTH_BACKENDS: airflow.api.auth.backend.session,airflow.api.auth.backend.basic_auth
       HADOOP_CONF_DIR: /opt/hadoop/etc/hadoop
       YARN_CONF_DIR: /opt/hadoop/etc/hadoop
+      SPARK_HOME: /opt/bitnami/spark
 
     volumes:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
       - ./include:/opt/airflow/include
+      - spark_home:/opt/bitnami/spark
+      - ./spark-config/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
     networks:
       - airflow
     healthcheck:
@@ -88,12 +91,16 @@ services:
       AIRFLOW__API__AUTH_BACKENDS: airflow.api.auth.backend.session,airflow.api.auth.backend.basic_auth
       HADOOP_CONF_DIR: /opt/hadoop/etc/hadoop
       YARN_CONF_DIR: /opt/hadoop/etc/hadoop
+      SPARK_HOME: /opt/bitnami/spark
 
     volumes:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
       - ./include:/opt/airflow/include
+      - ./hadoop-config:/opt/hadoop/etc/hadoop
+      - spark_home:/opt/bitnami/spark
+      - ./spark-config/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
     networks:
       - airflow
     healthcheck:
@@ -106,3 +113,6 @@ services:
 networks:
   airflow:
     driver: bridge
+
+volumes:
+  spark_home:

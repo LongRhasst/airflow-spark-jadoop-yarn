@@ -71,8 +71,9 @@ services:
     container_name: spark
     command: sleep infinity
     volumes:
-      - ./spark-apps:/opt/spark-apps
+      - spark_home:/opt/bitnami/spark
       - ./hadoop-config:/etc/hadoop/conf
+      - ./spark-config/spark-defaults.conf:/opt/bitnami/spark/conf/spark-defaults.conf
     environment:
       - HADOOP_CONF_DIR=/etc/hadoop/conf
       - YARN_CONF_DIR=/etc/hadoop/conf
@@ -111,3 +112,4 @@ volumes:
   hadoop_namenode:
   hadoop_datanode:
   hadoop_historyserver:
+  spark_home:

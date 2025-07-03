@@ -8,26 +8,26 @@ import time
 import subprocess
 import os
 
-def test_spark_master_connection():
-    """Test connection to Spark master"""
-    print("🔍 Testing Spark Master connection...")
+# def test_spark_master_connection():
+#     """Test connection to Spark master"""
+#     print("🔍 Testing Spark Master connection...")
     
-    try:
-        response = requests.get("http://spark-master:8080/json/", timeout=10)
-        if response.status_code == 200:
-            print("✅ Spark Master is accessible")
-            cluster_info = response.json()
-            active_apps = cluster_info.get('activeapps', [])
-            print(f"📊 Found {len(active_apps)} active applications")
-            print(f"📊 Cluster status: {cluster_info.get('status', 'UNKNOWN')}")
-            print(f"📊 Alive workers: {cluster_info.get('aliveworkers', 0)}")
-            return True
-        else:
-            print(f"❌ Spark Master returned status code: {response.status_code}")
-            return False
-    except Exception as e:
-        print(f"❌ Failed to connect to Spark Master: {e}")
-        return False
+#     try:
+#         response = requests.get("http://spark-master:8080/json/", timeout=10)
+#         if response.status_code == 200:
+#             print("✅ Spark Master is accessible")
+#             cluster_info = response.json()
+#             active_apps = cluster_info.get('activeapps', [])
+#             print(f"📊 Found {len(active_apps)} active applications")
+#             print(f"📊 Cluster status: {cluster_info.get('status', 'UNKNOWN')}")
+#             print(f"📊 Alive workers: {cluster_info.get('aliveworkers', 0)}")
+#             return True
+#         else:
+#             print(f"❌ Spark Master returned status code: {response.status_code}")
+#             return False
+#     except Exception as e:
+#         print(f"❌ Failed to connect to Spark Master: {e}")
+#         return False
 
 def test_yarn_resourcemanager():
     """Test connection to YARN ResourceManager"""
@@ -106,12 +106,13 @@ spark.stop()
         # Create Spark session that connects to the cluster
         spark = SparkSession.builder \
             .appName("ClusterTest") \
-            .master("spark://spark-master:7077") \
+            .master("yarn") \
             .config("spark.executor.memory", "512m") \
             .config("spark.executor.cores", "1") \
             .config("spark.cores.max", "1") \
             .config("spark.sql.execution.arrow.pyspark.enabled", "false") \
             .getOrCreate()
+
         
         spark.sparkContext.setLogLevel("ERROR")
         
@@ -154,7 +155,7 @@ def run_comprehensive_test():
     print("🚀 Starting comprehensive Spark cluster connectivity tests...\n")
     
     tests = [
-        ("Spark Master", test_spark_master_connection),
+        # ("Spark Master", test_spark_master_connection),
         ("YARN ResourceManager", test_yarn_resourcemanager),
         ("Hadoop NameNode", test_hadoop_namenode),
         ("Spark Job Submission", submit_test_spark_job)
